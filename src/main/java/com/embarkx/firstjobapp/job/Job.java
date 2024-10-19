@@ -1,14 +1,28 @@
 package com.embarkx.firstjobapp.job;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "job_table")
 public class Job {
-	private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String title;
 	private String description;
 	private String minSalary;
 	private String maxSalary;
 	private String location;
 	
-	public Job(long id, String title, String description, String minSalary, String maxSalary, String location) {
+	public Job() {
+		
+	}
+	
+	public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
@@ -21,7 +35,7 @@ public class Job {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
